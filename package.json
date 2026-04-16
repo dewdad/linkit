@@ -14,7 +14,7 @@
     {
       "name": "index",
       "title": "Link It",
-      "subtitle": "linkit",
+      "subtitle": "Search selected text & paste links",
       "description": "Search DuckDuckGo for selected text and paste markdown links",
       "mode": "view",
       "keywords": [
