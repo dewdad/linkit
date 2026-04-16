@@ -13,9 +13,18 @@
   "commands": [
     {
       "name": "index",
-      "title": "Search & Link Selected Text",
+      "title": "Link It",
+      "subtitle": "linkit",
       "description": "Search DuckDuckGo for selected text and paste markdown links",
-      "mode": "view"
+      "mode": "view",
+      "keywords": [
+        "linkit",
+        "link",
+        "search",
+        "duckduckgo",
+        "url",
+        "paste"
+      ]
     }
   ],
   "dependencies": {
@@ -28,6 +37,7 @@
     "@types/react": "19.0.10",
     "eslint": "^8.57.1",
     "prettier": "^3.4.2",
+    "sharp": "^0.34.5",
     "typescript": "^5.8.2"
   },
   "scripts": {

@@ -3,6 +3,7 @@ import {
   ActionPanel,
   Clipboard,
   Icon,
+  Keyboard,
   List,
   getSelectedText,
   showToast,
@@ -108,8 +109,7 @@ export default function Command() {
       });
       return;
     }
-    const markdown = formatResultsAsMarkdown(chosen);
-    await Clipboard.paste(markdown);
+    await Clipboard.paste(formatResultsAsMarkdown(chosen));
     await closeMainWindow();
   }, [results, selected]);
 
@@ -133,11 +133,13 @@ export default function Command() {
                 <Action
                   title="Paste Selected Links"
                   icon={Icon.Clipboard}
+                  shortcut={{ modifiers: [], key: "return" }}
                   onAction={pasteSelected}
                 />
                 <Action
                   title="Deselect All"
                   icon={Icon.XMarkCircle}
+                  shortcut={{ modifiers: ["cmd"], key: "d" }}
                   onAction={deselectAll}
                 />
               </ActionPanel>
@@ -160,27 +162,35 @@ export default function Command() {
                   <Action
                     title={isSelected ? "Deselect" : "Select"}
                     icon={isSelected ? Icon.XMarkCircle : Icon.CheckCircle}
+                    shortcut={{ modifiers: ["opt"], key: "space" }}
                     onAction={() => toggleSelect(result.url)}
                   />
                   <Action
                     title="Paste Selected Links"
                     icon={Icon.Clipboard}
+                    shortcut={{ modifiers: [], key: "return" }}
                     onAction={pasteSelected}
                   />
                   <Action
                     title="Select All"
                     icon={Icon.CheckCircle}
+                    shortcut={{ modifiers: ["cmd"], key: "a" }}
                     onAction={selectAll}
                   />
                   <Action
                     title="Deselect All"
                     icon={Icon.XMarkCircle}
+                    shortcut={{ modifiers: ["cmd"], key: "d" }}
                     onAction={deselectAll}
                   />
-                  <Action.OpenInBrowser url={result.url} />
+                  <Action.OpenInBrowser
+                    url={result.url}
+                    shortcut={Keyboard.Shortcut.Common.Open}
+                  />
                   <Action.CopyToClipboard
                     title="Copy URL"
                     content={result.url}
+                    shortcut={Keyboard.Shortcut.Common.Copy}
                   />
                 </ActionPanel>
               }
