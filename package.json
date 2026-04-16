@@ -38,13 +38,16 @@
     "eslint": "^8.57.1",
     "prettier": "^3.4.2",
     "sharp": "^0.34.5",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "vitest": "^4.1.4"
   },
   "scripts": {
     "build": "ray build --skip-types -e dist -o dist",
     "dev": "ray develop",
     "fix-lint": "ray lint --fix",
     "lint": "ray lint",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "prepublishOnly": "echo \"Error: no publish\" && exit 1",
     "publish": "npx @raycast/api@latest publish"
   }
